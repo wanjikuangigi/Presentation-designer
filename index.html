@@ -7,9 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════
-   TOKENS — deep navy / champagne gold
-═══════════════════════════════════════ */
 :root {
   --navy-deep:  #080E1C;
   --navy:       #0D1829;
@@ -24,10 +21,8 @@
   --ivory-faint:rgba(242,237,224,0.09);
   --mid:        rgba(242,237,224,0.42);
 }
-
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
 html { scroll-behavior:smooth }
-
 body {
   background: var(--navy-deep);
   color: var(--ivory);
@@ -37,19 +32,13 @@ body {
   overflow-x: hidden;
   cursor: none;
 }
-
-/* grain */
 body::before {
   content:'';position:fixed;inset:0;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   opacity:.022;pointer-events:none;z-index:998;
 }
-
-/* ── CURSOR ── */
 .cursor { width:9px;height:9px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;will-change:transform }
 .cursor-ring { width:34px;height:34px;border:1.5px solid var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;opacity:.38;will-change:transform }
-
-/* ── NAV ── */
 nav {
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
@@ -58,130 +47,48 @@ nav {
   backdrop-filter:blur(18px);
   border-bottom:1px solid var(--border);
 }
-.nav-logo {
-  font-family:'Libre Baskerville',serif;
-  font-size:1.15rem;font-weight:700;letter-spacing:.03em;
-  color:var(--ivory);text-decoration:none;
-}
+.nav-logo { font-family:'Libre Baskerville',serif;font-size:1.15rem;font-weight:700;letter-spacing:.03em;color:var(--ivory);text-decoration:none; }
 .nav-logo span { color:var(--gold);font-style:italic;font-weight:400 }
 .nav-links { display:flex;gap:2.8rem;list-style:none }
-.nav-links a {
-  font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
-  color:var(--mid);text-decoration:none;transition:color .25s;
-}
+.nav-links a { font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--mid);text-decoration:none;transition:color .25s; }
 .nav-links a:hover { color:var(--gold) }
-
-/* hamburger */
 .hamburger { display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px }
 .hamburger span { display:block;width:24px;height:2px;background:var(--ivory);transition:all .3s;border-radius:1px }
-.mobile-menu {
-  display:none;position:fixed;inset:0;
-  background:var(--navy-deep);z-index:99;
-  flex-direction:column;align-items:center;justify-content:center;gap:3rem;
-}
+.mobile-menu { display:none;position:fixed;inset:0;background:var(--navy-deep);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:3rem; }
 .mobile-menu.open { display:flex }
-.mobile-menu a {
-  font-family:'Libre Baskerville',serif;font-size:2.4rem;font-weight:700;
-  color:var(--ivory);text-decoration:none;letter-spacing:.02em;transition:color .2s;
-}
+.mobile-menu a { font-family:'Libre Baskerville',serif;font-size:2.4rem;font-weight:700;color:var(--ivory);text-decoration:none;letter-spacing:.02em;transition:color .2s; }
 .mobile-menu a:hover { color:var(--gold) }
-.mobile-close {
-  position:absolute;top:1.8rem;right:7vw;background:none;border:none;
-  color:var(--mid);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
-  cursor:pointer;font-family:'Raleway',sans-serif;font-weight:600;
-}
-
-/* ═══════════════════════════════════════
-   HERO
-═══════════════════════════════════════ */
-.hero {
-  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
-  padding-top:80px;position:relative;overflow:hidden;
-}
-.hero-bg {
-  position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 65% 65% at 80% 50%, rgba(200,168,75,0.05) 0%, transparent 65%),
-    radial-gradient(ellipse 45% 80% at 0% 100%, rgba(21,34,56,0.8) 0%, transparent 60%);
-  pointer-events:none;
-}
+.mobile-close { position:absolute;top:1.8rem;right:7vw;background:none;border:none;color:var(--mid);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;font-family:'Raleway',sans-serif;font-weight:600; }
+.hero { min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:80px;position:relative;overflow:hidden; }
+.hero-bg { position:absolute;inset:0;background:radial-gradient(ellipse 65% 65% at 80% 50%, rgba(200,168,75,0.05) 0%, transparent 65%),radial-gradient(ellipse 45% 80% at 0% 100%, rgba(21,34,56,0.8) 0%, transparent 60%);pointer-events:none; }
 .hero-vline { position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--border);pointer-events:none }
-
-.hero-left {
-  display:flex;flex-direction:column;justify-content:center;
-  padding:7vw 4vw 7vw 8vw;position:relative;z-index:1;
-}
-.eyebrow {
-  font-size:.75rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600;
-  color:var(--gold);margin-bottom:2rem;
-  display:flex;align-items:center;gap:1rem;
-}
+.hero-left { display:flex;flex-direction:column;justify-content:center;padding:7vw 4vw 7vw 8vw;position:relative;z-index:1; }
+.eyebrow { font-size:.75rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:1rem; }
 .eyebrow::before { content:'';display:block;width:32px;height:2px;background:var(--gold) }
-
-h1 {
-  font-family:'Libre Baskerville',serif;
-  font-size:clamp(2.8rem,4.6vw,5.2rem);
-  font-weight:700;line-height:1.08;
-  letter-spacing:-.01em;margin-bottom:2rem;
-}
+h1 { font-family:'Libre Baskerville',serif;font-size:clamp(2.8rem,4.6vw,5.2rem);font-weight:700;line-height:1.08;letter-spacing:-.01em;margin-bottom:2rem; }
 h1 em { font-style:italic;color:var(--gold);font-weight:400 }
-
-.hero-desc {
-  font-size:1.05rem;line-height:1.85;
-  color:var(--ivory-dim);max-width:380px;margin-bottom:3rem;font-weight:400;
-}
+.hero-desc { font-size:1.05rem;line-height:1.85;color:var(--ivory-dim);max-width:380px;margin-bottom:3rem;font-weight:400; }
 .hero-cta { display:flex;gap:1.2rem;flex-wrap:wrap;align-items:center }
-
-.btn-primary {
-  padding:.95rem 2.4rem;background:var(--gold);color:var(--navy-deep);
-  border:none;font-family:'Raleway',sans-serif;font-size:.78rem;
-  letter-spacing:.18em;text-transform:uppercase;font-weight:700;
-  text-decoration:none;cursor:none;
-  transition:background .25s,transform .2s;display:inline-block;
-}
+.btn-primary { padding:.95rem 2.4rem;background:var(--gold);color:var(--navy-deep);border:none;font-family:'Raleway',sans-serif;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;text-decoration:none;cursor:none;transition:background .25s,transform .2s;display:inline-block; }
 .btn-primary:hover { background:var(--gold-lt);transform:translateY(-2px) }
-.btn-ghost {
-  padding:.95rem 2.4rem;background:transparent;color:var(--ivory);
-  border:2px solid var(--border);font-family:'Raleway',sans-serif;
-  font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
-  text-decoration:none;cursor:none;transition:border-color .25s,color .25s;display:inline-block;
-}
+.btn-ghost { padding:.95rem 2.4rem;background:transparent;color:var(--ivory);border:2px solid var(--border);font-family:'Raleway',sans-serif;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;text-decoration:none;cursor:none;transition:border-color .25s,color .25s;display:inline-block; }
 .btn-ghost:hover { border-color:var(--gold);color:var(--gold) }
-
-/* ── HERO RIGHT — CAROUSEL ── */
-.hero-right {
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:4vw 6vw 4vw 3vw;position:relative;z-index:1;gap:1.6rem;
-}
+.hero-right { display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4vw 6vw 4vw 3vw;position:relative;z-index:1;gap:1.6rem; }
 .carousel-wrap { width:100%;max-width:500px }
-.carousel-label {
-  font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
-  color:var(--gold);margin-bottom:1rem;opacity:.75;
-  display:flex;align-items:center;gap:.7rem;
-}
+.carousel-label { font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:1rem;opacity:.75;display:flex;align-items:center;gap:.7rem; }
 .carousel-label::before { content:'';display:block;width:18px;height:2px;background:var(--gold) }
-
-.carousel-track {
-  position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;
-  border:1px solid var(--border);
-  box-shadow:0 32px 90px rgba(0,0,0,.55),0 0 0 1px rgba(200,168,75,.08);
-}
-.carousel-slide {
-  position:absolute;inset:0;opacity:0;transition:opacity .65s ease;
-  display:flex;flex-direction:column;justify-content:flex-end;padding:9% 10%;
-}
+.carousel-track { position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border:1px solid var(--border);box-shadow:0 32px 90px rgba(0,0,0,.55),0 0 0 1px rgba(200,168,75,.08); }
+.carousel-slide { position:absolute;inset:0;opacity:0;transition:opacity .65s ease;display:flex;flex-direction:column;justify-content:flex-end;padding:9% 10%; }
 .carousel-slide.active { opacity:1 }
 .carousel-slide.active .cs-tag  { animation:csUp .5s .1s both }
 .carousel-slide.active .cs-name { animation:csUp .5s .2s both }
 .carousel-slide.active .cs-sub  { animation:csUp .5s .3s both }
 .carousel-slide.active .cs-btn  { animation:csUp .5s .42s both }
 @keyframes csUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:none} }
-
 .slide-overlay { position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,.08) 65%);z-index:1 }
 .slide-geo { position:absolute;inset:0;z-index:0 }
 .slide-geo svg { width:100%;height:100%;position:absolute;inset:0 }
 .slide-content { position:relative;z-index:2 }
-
 .cs-neural  { background:linear-gradient(145deg,#090F1E 0%,#0F1E3A 100%) }
 .cs-pay     { background:linear-gradient(145deg,#091A12 0%,#0F2B1E 100%) }
 .cs-vault   { background:linear-gradient(145deg,#1A1000 0%,#2E1E00 100%) }
@@ -189,113 +96,43 @@ h1 em { font-style:italic;color:var(--gold);font-weight:400 }
 .cs-merid   { background:linear-gradient(145deg,#081414 0%,#0D2424 100%) }
 .cs-econest { background:linear-gradient(145deg,#091409 0%,#122212 100%) }
 .cs-ecosty  { background:linear-gradient(145deg,#161008 0%,#281C0C 100%) }
-
-.cs-tag {
-  font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
-  color:rgba(200,168,75,.7);margin-bottom:.5rem;display:block;
-}
-.cs-name {
-  font-family:'Libre Baskerville',serif;
-  font-size:clamp(1.1rem,2.2vw,1.65rem);font-weight:700;
-  color:var(--ivory);line-height:1.2;margin-bottom:.35rem;
-}
+.cs-tag { font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:rgba(200,168,75,.7);margin-bottom:.5rem;display:block; }
+.cs-name { font-family:'Libre Baskerville',serif;font-size:clamp(1.1rem,2.2vw,1.65rem);font-weight:700;color:var(--ivory);line-height:1.2;margin-bottom:.35rem; }
 .cs-sub { font-size:.68rem;color:rgba(242,237,224,.4);margin-bottom:1.1rem;display:block;font-weight:400 }
-.cs-btn {
-  display:inline-block;padding:.52rem 1.3rem;
-  border:1.5px solid rgba(200,168,75,.45);color:var(--gold);
-  font-family:'Raleway',sans-serif;font-size:.65rem;
-  letter-spacing:.16em;text-transform:uppercase;font-weight:600;
-  text-decoration:none;cursor:none;
-  transition:background .25s,border-color .25s;background:rgba(200,168,75,.07);
-}
+.cs-btn { display:inline-block;padding:.52rem 1.3rem;border:1.5px solid rgba(200,168,75,.45);color:var(--gold);font-family:'Raleway',sans-serif;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;text-decoration:none;cursor:none;transition:background .25s,border-color .25s;background:rgba(200,168,75,.07); }
 .cs-btn:hover { background:var(--gold);color:var(--navy-deep);border-color:var(--gold) }
-
-/* carousel controls */
-.carousel-controls {
-  display:flex;align-items:center;justify-content:space-between;
-  width:100%;max-width:500px;
-}
+.carousel-controls { display:flex;align-items:center;justify-content:space-between;width:100%;max-width:500px; }
 .carousel-dots { display:flex;gap:.55rem;align-items:center }
-.carousel-dot {
-  width:20px;height:2px;background:var(--mid);
-  transition:background .3s,width .3s;cursor:pointer;border-radius:1px;
-}
+.carousel-dot { width:20px;height:2px;background:var(--mid);transition:background .3s,width .3s;cursor:pointer;border-radius:1px; }
 .carousel-dot.active { background:var(--gold);width:38px }
 .carousel-arrows { display:flex;gap:.6rem }
-.carousel-arr {
-  width:36px;height:36px;border:1.5px solid var(--border);background:none;
-  color:var(--mid);font-size:1rem;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:border-color .25s,color .25s;font-family:'Raleway',sans-serif;
-}
+.carousel-arr { width:36px;height:36px;border:1.5px solid var(--border);background:none;color:var(--mid);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .25s,color .25s;font-family:'Raleway',sans-serif; }
 .carousel-arr:hover { border-color:var(--gold);color:var(--gold) }
 .carousel-counter { font-size:.7rem;letter-spacing:.1em;color:var(--mid);font-weight:500 }
 .carousel-counter span { color:var(--gold) }
-
-/* ── MARQUEE ── */
-.marquee-wrap {
-  overflow:hidden;
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  padding:.9rem 0;background:var(--navy-mid);
-}
+.marquee-wrap { overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.9rem 0;background:var(--navy-mid); }
 .marquee-inner { display:flex;gap:3rem;white-space:nowrap;animation:marquee 26s linear infinite }
 .marquee-item { font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--gold);opacity:.5;flex-shrink:0 }
 .marquee-sep { color:var(--gold);opacity:.22;flex-shrink:0 }
 @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
-/* ── STATS ── */
 .stats-bar { display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border) }
-.stat-cell {
-  padding:3rem 2rem;border-right:1px solid var(--border);
-  text-align:center;position:relative;overflow:hidden;
-  transition:background .3s;background:var(--navy);
-}
+.stat-cell { padding:3rem 2rem;border-right:1px solid var(--border);text-align:center;position:relative;overflow:hidden;transition:background .3s;background:var(--navy); }
 .stat-cell:last-child { border-right:none }
 .stat-cell:hover { background:var(--navy-mid) }
-.stat-cell::after {
-  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:var(--gold);transform:scaleX(0);transform-origin:left;
-  transition:transform .4s cubic-bezier(.23,1,.32,1);
-}
+.stat-cell::after { content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.23,1,.32,1); }
 .stat-cell:hover::after { transform:scaleX(1) }
-.stat-num {
-  font-family:'Libre Baskerville',serif;
-  font-size:clamp(2rem,3.2vw,3rem);font-weight:700;color:var(--ivory);line-height:1;
-}
+.stat-num { font-family:'Libre Baskerville',serif;font-size:clamp(2rem,3.2vw,3rem);font-weight:700;color:var(--ivory);line-height:1; }
 .stat-num span { color:var(--gold) }
 .stat-lbl { font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--mid);margin-top:.65rem }
-
-/* ── SECTION GLOBALS ── */
 section { padding:8vw 9vw }
-.section-eyebrow {
-  font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600;
-  color:var(--gold);margin-bottom:1.2rem;
-  display:flex;align-items:center;gap:.9rem;
-}
+.section-eyebrow { font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:.9rem; }
 .section-eyebrow::before { content:'';display:block;width:28px;height:2px;background:var(--gold) }
-h2 {
-  font-family:'Libre Baskerville',serif;
-  font-size:clamp(2.2rem,4vw,3.8rem);font-weight:700;line-height:1.1;margin-bottom:1rem;
-}
+h2 { font-family:'Libre Baskerville',serif;font-size:clamp(2.2rem,4vw,3.8rem);font-weight:700;line-height:1.1;margin-bottom:1rem; }
 h2 em { font-style:italic;color:var(--gold);font-weight:400 }
-
-/* ── ABOUT ── */
-.about-section {
-  background:var(--navy);
-  display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center;
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-}
-.about-img-frame {
-  width:100%;aspect-ratio:3/4;max-width:400px;
-  background:var(--navy-mid);border:1px solid var(--border);
-  position:relative;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-}
+.about-section { background:var(--navy);display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border); }
+.about-img-frame { width:100%;aspect-ratio:3/4;max-width:400px;background:var(--navy-mid);border:1px solid var(--border);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center; }
 .about-img-frame img { width:100%;height:100%;object-fit:cover;object-position:top;display:block }
-.about-placeholder {
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:1.2rem;text-align:center;padding:3rem;height:100%;
-}
+.about-placeholder { display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;text-align:center;padding:3rem;height:100%; }
 .about-placeholder .ph-icon { font-size:2.2rem;color:var(--gold);opacity:.22 }
 .about-placeholder p { font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);line-height:2.1;font-weight:500 }
 .img-corner { position:absolute;width:26px;height:26px;border-color:var(--gold);border-style:solid;opacity:.45 }
@@ -303,50 +140,26 @@ h2 em { font-style:italic;color:var(--gold);font-weight:400 }
 .img-corner.tr { top:12px;right:12px;border-width:2px 2px 0 0 }
 .img-corner.bl { bottom:12px;left:12px;border-width:0 0 2px 2px }
 .img-corner.br { bottom:12px;right:12px;border-width:0 2px 2px 0 }
-
 .about-body { font-size:1rem;line-height:1.9;color:var(--ivory-dim);font-weight:400 }
 .about-body p+p { margin-top:1.2rem }
 .about-creds { margin-top:2.5rem;display:flex;flex-direction:column;gap:.9rem }
-.cred-item {
-  display:flex;align-items:center;gap:1rem;
-  font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--mid);
-}
+.cred-item { display:flex;align-items:center;gap:1rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--mid); }
 .cred-item::before { content:'';display:block;width:16px;height:2px;background:var(--gold);flex-shrink:0 }
-
-/* ── SERVICES ── */
 .services-section { background:var(--navy-deep) }
 .services-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:4rem }
-.service-card {
-  border:1px solid var(--border);margin:-1px 0 0 -1px;padding:3rem 2.4rem;
-  position:relative;overflow:hidden;transition:background .35s;background:var(--navy);
-}
-.service-card::before {
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  transform:scaleX(0);transition:transform .5s cubic-bezier(.23,1,.32,1);
-}
+.service-card { border:1px solid var(--border);margin:-1px 0 0 -1px;padding:3rem 2.4rem;position:relative;overflow:hidden;transition:background .35s;background:var(--navy); }
+.service-card::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .5s cubic-bezier(.23,1,.32,1); }
 .service-card:hover::before { transform:scaleX(1) }
 .service-card:hover { background:var(--navy-mid) }
-.svc-num {
-  font-family:'Libre Baskerville',serif;
-  font-size:3.5rem;font-weight:700;color:var(--ivory-faint);line-height:1;margin-bottom:1.6rem;
-}
-.svc-title {
-  font-family:'Libre Baskerville',serif;
-  font-size:1.3rem;font-weight:700;margin-bottom:1rem;line-height:1.2;color:var(--ivory);
-}
+.svc-num { font-family:'Libre Baskerville',serif;font-size:3.5rem;font-weight:700;color:var(--ivory-faint);line-height:1;margin-bottom:1.6rem; }
+.svc-title { font-family:'Libre Baskerville',serif;font-size:1.3rem;font-weight:700;margin-bottom:1rem;line-height:1.2;color:var(--ivory); }
 .svc-desc { font-size:.92rem;line-height:1.85;color:var(--mid);font-weight:400 }
 .svc-price { margin-top:2rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--gold) }
-
-/* ── WORK ── */
 .work-section { background:var(--navy);border-top:1px solid var(--border) }
 .work-intro { max-width:560px;margin-bottom:4.5rem }
 .work-intro p { font-size:1rem;line-height:1.85;color:var(--ivory-dim);margin-top:1rem;font-weight:400 }
 .projects-grid { display:grid;grid-template-columns:repeat(12,1fr);gap:1px;background:var(--border) }
-.project-card {
-  position:relative;cursor:none;overflow:hidden;background:var(--navy);
-  transition:transform .4s cubic-bezier(.23,1,.32,1);
-}
+.project-card { position:relative;cursor:none;overflow:hidden;background:var(--navy);transition:transform .4s cubic-bezier(.23,1,.32,1); }
 .project-card:hover { transform:scale(1.007);z-index:2 }
 .project-card:nth-child(1) { grid-column:span 7 }
 .project-card:nth-child(2) { grid-column:span 5 }
@@ -376,8 +189,6 @@ h2 em { font-style:italic;color:var(--gold);font-weight:400 }
 .project-info p { font-size:.88rem;color:var(--mid);line-height:1.75;font-weight:400 }
 .project-tags { display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.9rem }
 .ptag { font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:.28rem .8rem;border:1px solid var(--border);color:var(--mid);border-radius:2px }
-
-/* ── PROCESS ── */
 .process-section { background:var(--navy-deep);border-top:1px solid var(--border) }
 .process-steps { display:grid;grid-template-columns:repeat(4,1fr);margin-top:4rem;border:1px solid var(--border) }
 .process-step { padding:3rem 2.2rem;border-right:1px solid var(--border);position:relative;overflow:hidden }
@@ -388,8 +199,6 @@ h2 em { font-style:italic;color:var(--gold);font-weight:400 }
 .step-num::before { content:'';display:inline-block;width:20px;height:2px;background:var(--gold);opacity:.45 }
 .step-title { font-family:'Libre Baskerville',serif;font-size:1.25rem;font-weight:700;color:var(--ivory);margin-bottom:.8rem }
 .step-desc { font-size:.9rem;line-height:1.82;color:var(--mid);font-weight:400 }
-
-/* ── TESTIMONIALS ── */
 .testi-section { background:var(--navy);border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 2fr;gap:7vw;align-items:start }
 .testi-left h2 { font-size:clamp(2rem,3.2vw,3.2rem) }
 .testi-note { font-size:.88rem;line-height:1.85;color:var(--mid);margin-top:1.2rem;font-weight:400;font-style:italic }
@@ -403,19 +212,12 @@ h2 em { font-style:italic;color:var(--gold);font-weight:400 }
 .av1 { background:var(--gold) }.av2 { background:#9E8A6E }.av3 { background:#6E8A7A }
 .author-name { font-size:.85rem;font-weight:600;color:var(--ivory) }
 .author-role { font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--mid) }
-
-/* ── CTA ── */
-.cta-section {
-  background:var(--navy-mid);padding:10vw 10vw;text-align:center;
-  position:relative;overflow:hidden;border-top:1px solid var(--border);
-}
+.cta-section { background:var(--navy-mid);padding:10vw 10vw;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--border); }
 .cta-section::before { content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(200,168,75,.05) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none }
 .cta-section h2 { font-size:clamp(2.5rem,5vw,5.2rem);position:relative }
 .cta-section p { color:var(--mid);font-size:1rem;line-height:1.85;max-width:480px;margin:1.8rem auto 3.5rem;font-weight:400;position:relative }
 .btn-cta { display:inline-block;padding:1.1rem 3.5rem;background:transparent;color:var(--gold);border:2px solid var(--gold);font-family:'Raleway',sans-serif;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;text-decoration:none;cursor:none;transition:background .3s,color .3s,transform .2s;position:relative }
 .btn-cta:hover { background:var(--gold);color:var(--navy-deep);transform:translateY(-2px) }
-
-/* ── FOOTER ── */
 footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;border-top:1px solid var(--border) }
 .footer-logo { font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--mid);letter-spacing:.03em }
 .footer-logo span { color:var(--gold);font-style:italic;font-weight:400 }
@@ -423,15 +225,11 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
 .footer-links a { font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--mid);text-decoration:none;transition:color .25s }
 .footer-links a:hover { color:var(--gold) }
 .footer-copy { font-size:.65rem;letter-spacing:.06em;color:rgba(242,237,224,.14);font-weight:400 }
-
-/* ── ANIMATIONS ── */
 @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
 .fade-up { opacity:0;animation:fadeUp .85s cubic-bezier(.23,1,.32,1) forwards }
 .d1{animation-delay:.12s}.d2{animation-delay:.26s}.d3{animation-delay:.4s}.d4{animation-delay:.54s}
 .reveal { opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.23,1,.32,1),transform .8s cubic-bezier(.23,1,.32,1) }
 .reveal.visible { opacity:1;transform:none }
-
-/* ── RESPONSIVE ── */
 @media(max-width:960px){
   .hero{grid-template-columns:1fr}
   .hero-left{padding:3.5rem 7vw 2rem;order:2}
@@ -471,7 +269,6 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Margaret <span>Wanjiku</span></a>
   <ul class="nav-links">
@@ -495,11 +292,9 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
   <a href="#contact" onclick="closeMobile()">Contact</a>
 </div>
 
-<!-- HERO -->
 <section class="hero" style="padding:0;padding-top:80px">
   <div class="hero-bg"></div>
   <div class="hero-vline"></div>
-
   <div class="hero-left">
     <p class="eyebrow fade-up">Presentation Design · Nairobi, Kenya</p>
     <h1 class="fade-up d1">Decks that<br>close <em>rooms.</em></h1>
@@ -515,6 +310,13 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
       <div class="carousel-label">Featured Projects — click to explore</div>
       <div class="carousel-track" id="carouselTrack">
 
+        <!-- ═══════════════════════════════════════════
+             CAROUSEL SLIDE 1
+             TO EDIT: Change the text between the tags below
+             cs-tag    = industry / deck type
+             cs-name   = project name (two lines)
+             cs-sub    = slide count + palette
+        ═══════════════════════════════════════════ -->
         <div class="carousel-slide active cs-neural">
           <div class="slide-overlay"></div>
           <div class="slide-geo"><svg viewBox="0 0 500 281" preserveAspectRatio="none">
@@ -523,13 +325,14 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
             <line x1="300" y1="60" x2="500" y2="281" stroke="rgba(200,168,75,.08)" stroke-width="1.5"/>
           </svg></div>
           <div class="slide-content">
-            <span class="cs-tag">AI · SaaS · Series A</span>
-            <div class="cs-name">NeuralPath AI<br>Investor Pitch Deck</div>
-            <span class="cs-sub">14 slides · Navy &amp; Champagne Gold</span>
+            <span class="cs-tag">AI · SaaS · Series A</span><!-- EDIT: industry/type -->
+            <div class="cs-name">NeuralPath AI<br>Investor Pitch Deck</div><!-- EDIT: project name -->
+            <span class="cs-sub">14 slides · Navy &amp; Champagne Gold</span><!-- EDIT: slide count + palette -->
             <a href="#work" class="cs-btn">View Case Study ↓</a>
           </div>
         </div>
 
+        <!-- ═══════════════════════════════════════════ CAROUSEL SLIDE 2 ═══ -->
         <div class="carousel-slide cs-pay">
           <div class="slide-overlay"></div>
           <div class="slide-geo"><svg viewBox="0 0 500 281" preserveAspectRatio="none">
@@ -537,13 +340,14 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
             <line x1="0" y1="240" x2="500" y2="80" stroke="rgba(74,140,122,.07)" stroke-width="1.5"/>
           </svg></div>
           <div class="slide-content">
-            <span class="cs-tag">Fintech · Growth Strategy</span>
-            <div class="cs-name">PayClear<br>Strategy &amp; Growth Deck</div>
-            <span class="cs-sub">12 slides · Forest Green &amp; Gold</span>
+            <span class="cs-tag">Fintech · Growth Strategy</span><!-- EDIT -->
+            <div class="cs-name">PayClear<br>Strategy &amp; Growth Deck</div><!-- EDIT -->
+            <span class="cs-sub">12 slides · Forest Green &amp; Gold</span><!-- EDIT -->
             <a href="#work" class="cs-btn">View Case Study ↓</a>
           </div>
         </div>
 
+        <!-- ═══════════════════════════════════════════ CAROUSEL SLIDE 3 ═══ -->
         <div class="carousel-slide cs-econest">
           <div class="slide-overlay"></div>
           <div class="slide-geo"><svg viewBox="0 0 500 281" preserveAspectRatio="none">
@@ -552,13 +356,14 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
             <line x1="0" y1="220" x2="500" y2="70" stroke="rgba(80,160,80,.07)" stroke-width="1.5"/>
           </svg></div>
           <div class="slide-content">
-            <span class="cs-tag">Sustainable Architecture · Brand</span>
-            <div class="cs-name">Econest<br>Brand &amp; Investor Deck</div>
-            <span class="cs-sub">13 slides · Deep Forest &amp; Ivory</span>
+            <span class="cs-tag">Sustainable Architecture · Brand</span><!-- EDIT -->
+            <div class="cs-name">Econest<br>Brand &amp; Investor Deck</div><!-- EDIT -->
+            <span class="cs-sub">13 slides · Deep Forest &amp; Ivory</span><!-- EDIT -->
             <a href="#work" class="cs-btn">View Case Study ↓</a>
           </div>
         </div>
 
+        <!-- ═══════════════════════════════════════════ CAROUSEL SLIDE 4 ═══ -->
         <div class="carousel-slide cs-vault">
           <div class="slide-overlay"></div>
           <div class="slide-geo"><svg viewBox="0 0 500 281" preserveAspectRatio="none">
@@ -566,13 +371,14 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
             <polygon points="450,35 500,105 400,105" fill="rgba(200,168,75,.055)"/>
           </svg></div>
           <div class="slide-content">
-            <span class="cs-tag">WealthTech · Seed Round</span>
-            <div class="cs-name">Vaultly<br>Seed Round Deck</div>
-            <span class="cs-sub">10 slides · Deep Amber &amp; Gold</span>
+            <span class="cs-tag">WealthTech · Seed Round</span><!-- EDIT -->
+            <div class="cs-name">Vaultly<br>Seed Round Deck</div><!-- EDIT -->
+            <span class="cs-sub">10 slides · Deep Amber &amp; Gold</span><!-- EDIT -->
             <a href="#work" class="cs-btn">View Case Study ↓</a>
           </div>
         </div>
 
+        <!-- ═══════════════════════════════════════════ CAROUSEL SLIDE 5 ═══ -->
         <div class="carousel-slide cs-bridge">
           <div class="slide-overlay"></div>
           <div class="slide-geo"><svg viewBox="0 0 500 281" preserveAspectRatio="none">
@@ -580,13 +386,14 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
             <circle cx="420" cy="140" r="58" fill="rgba(160,100,210,.05)"/>
           </svg></div>
           <div class="slide-content">
-            <span class="cs-tag">NGO · Impact Funding</span>
-            <div class="cs-name">BridgeLight Foundation<br>Donor &amp; Grant Deck</div>
-            <span class="cs-sub">11 slides · Deep Plum &amp; Ivory</span>
+            <span class="cs-tag">NGO · Impact Funding</span><!-- EDIT -->
+            <div class="cs-name">BridgeLight Foundation<br>Donor &amp; Grant Deck</div><!-- EDIT -->
+            <span class="cs-sub">11 slides · Deep Plum &amp; Ivory</span><!-- EDIT -->
             <a href="#work" class="cs-btn">View Case Study ↓</a>
           </div>
         </div>
 
+        <!-- ═══════════════════════════════════════════ CAROUSEL SLIDE 6 ═══ -->
         <div class="carousel-slide cs-ecosty">
           <div class="slide-overlay"></div>
           <div class="slide-geo"><svg viewBox="0 0 500 281" preserveAspectRatio="none">
@@ -594,13 +401,14 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
             <circle cx="100" cy="210" r="60" fill="rgba(120,160,60,.055)"/>
           </svg></div>
           <div class="slide-content">
-            <span class="cs-tag">Sustainable Fashion · Pitch</span>
-            <div class="cs-name">Ecostyle<br>Pitch Deck</div>
-            <span class="cs-sub">10 slides · Amber &amp; Sage</span>
+            <span class="cs-tag">Sustainable Fashion · Pitch</span><!-- EDIT -->
+            <div class="cs-name">Ecostyle<br>Pitch Deck</div><!-- EDIT -->
+            <span class="cs-sub">10 slides · Amber &amp; Sage</span><!-- EDIT -->
             <a href="#work" class="cs-btn">View Case Study ↓</a>
           </div>
         </div>
 
+        <!-- ═══════════════════════════════════════════ CAROUSEL SLIDE 7 ═══ -->
         <div class="carousel-slide cs-merid">
           <div class="slide-overlay"></div>
           <div class="slide-geo"><svg viewBox="0 0 500 281" preserveAspectRatio="none">
@@ -608,16 +416,15 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
             <rect x="360" y="70" width="80" height="80" fill="rgba(200,168,75,.05)" transform="rotate(12 400 110)"/>
           </svg></div>
           <div class="slide-content">
-            <span class="cs-tag">Investment Intelligence</span>
-            <div class="cs-name">Meridian Capital<br>Executive Strategy Deck</div>
-            <span class="cs-sub">16 slides · Teal &amp; Champagne Gold</span>
+            <span class="cs-tag">Investment Intelligence</span><!-- EDIT -->
+            <div class="cs-name">Meridian Capital<br>Executive Strategy Deck</div><!-- EDIT -->
+            <span class="cs-sub">16 slides · Teal &amp; Champagne Gold</span><!-- EDIT -->
             <a href="#work" class="cs-btn">View Case Study ↓</a>
           </div>
         </div>
 
       </div>
     </div>
-
     <div class="carousel-controls">
       <div class="carousel-dots" id="carouselDots"></div>
       <div style="display:flex;align-items:center;gap:1rem">
@@ -631,7 +438,6 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-inner">
     <span class="marquee-item">Investor Decks</span><span class="marquee-sep">·</span>
@@ -653,7 +459,6 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
   </div>
 </div>
 
-<!-- STATS -->
 <div class="stats-bar">
   <div class="stat-cell reveal"><div class="stat-num">80<span>+</span></div><div class="stat-lbl">Decks Delivered</div></div>
   <div class="stat-cell reveal"><div class="stat-num">12<span>+</span></div><div class="stat-lbl">Industries Served</div></div>
@@ -661,16 +466,16 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
   <div class="stat-cell reveal"><div class="stat-num">100<span>%</span></div><div class="stat-lbl">On-Time Delivery</div></div>
 </div>
 
-<!-- ABOUT -->
+<!-- ═══════════════════════════════════════════
+     ABOUT SECTION
+     TO ADD YOUR PHOTO: the image is already wired in below.
+     Make sure your file is named exactly: margaret.jpg.png
+     and uploaded to the same GitHub repo folder.
+═══════════════════════════════════════════ -->
 <section class="about-section" id="about">
   <div class="reveal">
     <div class="about-img-frame">
-      <!-- TO ADD YOUR PHOTO: change src="" to src="margaret.jpg.png" and put the image in the same folder -->
-      <img src="" alt="Margaret Wanjiku" id="aboutImg" style="display:none"/>
-      <div class="about-placeholder" id="aboutPH">
-        <div class="ph-icon">◈</div>
-        <p>Your photo here<br><br>Find src="" in the file<br>Change to src="yourphoto.jpg"</p>
-      </div>
+      <img src="margaret.jpg.png" alt="Margaret Wanjiku" id="aboutImg"/>
       <div class="img-corner tl"></div><div class="img-corner tr"></div>
       <div class="img-corner bl"></div><div class="img-corner br"></div>
     </div>
@@ -679,12 +484,13 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
     <p class="section-eyebrow">About</p>
     <h2>Strategy first.<br><em>Design second.</em></h2>
     <div class="about-body">
-      <!-- EDIT THIS TEXT -->
+      <!-- EDIT YOUR BIO BELOW — just change the text, don't touch the <p> tags -->
       <p>I'm Margaret Wanjiku — a presentation designer and strategist based in Nairobi, Kenya. I work with founders, executives, and organisations who need decks that don't just look good — they need decks that perform in the room.</p>
       <p>With 10+ years in business and finance, I bring a rare combination: the analytical mind that understands what investors and boards are actually evaluating, and the design eye that makes complex ideas feel inevitable.</p>
       <p>80+ decks delivered. Zero missed deadlines. Every client has walked away with something they were proud to present.</p>
     </div>
     <div class="about-creds">
+      <!-- EDIT CREDENTIALS BELOW — change the text between > and < -->
       <div class="cred-item">BCom Finance · 10+ Years Business Experience</div>
       <div class="cred-item">Pitch Decks · Board Decks · Investor Materials</div>
       <div class="cred-item">Sustainable &amp; Impact Brand Design</div>
@@ -693,16 +499,16 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="services-section" id="services">
   <p class="section-eyebrow reveal">What I Do</p>
   <h2 class="reveal">Every deck has<br>a <em>job to do.</em></h2>
   <div class="services-grid reveal">
+    <!-- EDIT SERVICE CARDS: change title, description, and price below -->
     <div class="service-card">
       <div class="svc-num">01</div>
-      <div class="svc-title">Investor Pitch Decks</div>
-      <p class="svc-desc">Seed to Series B. Built to survive a room of skeptical investors. Narrative-first, data-backed, visually uncompromising.</p>
-      <div class="svc-price">From $400 · 7–12 slides</div>
+      <div class="svc-title">Investor Pitch Decks</div><!-- EDIT title -->
+      <p class="svc-desc">Seed to Series B. Built to survive a room of skeptical investors. Narrative-first, data-backed, visually uncompromising.</p><!-- EDIT description -->
+      <div class="svc-price">From $400 · 7–12 slides</div><!-- EDIT price -->
     </div>
     <div class="service-card">
       <div class="svc-num">02</div>
@@ -725,7 +531,6 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
   </div>
 </section>
 
-<!-- WORK -->
 <section class="work-section" id="work">
   <div class="work-intro reveal">
     <p class="section-eyebrow">Selected Work</p>
@@ -733,38 +538,173 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
     <p>A curated selection of pitch decks, investor materials, and executive presentations — designed to perform, not just impress.</p>
   </div>
   <div class="projects-grid">
+
+    <!-- ═══════════════════════════════════════════
+         CASE STUDY 1 — NeuralPath AI
+         TO EDIT THIS CARD:
+         - proj-tag   = industry · deck type
+         - proj-name  = client/project name
+         - proj-sub   = deck type · number of slides
+         - h3         = one-line headline
+         - p          = 2-3 sentence description
+         - ptag       = keyword tags (add/remove as needed)
+    ═══════════════════════════════════════════ -->
     <div class="project-card reveal">
-      <div class="project-visual pv-neural"><div class="pv-geo"><svg viewBox="0 0 400 225" preserveAspectRatio="none"><circle cx="330" cy="45" r="85" fill="rgba(200,168,75,.06)"/><line x1="245" y1="45" x2="410" y2="210" stroke="rgba(200,168,75,.09)" stroke-width="1.5"/></svg></div><div class="project-overlay"></div><div class="proj-meta"><span class="proj-tag">AI · SaaS · Series A</span><div class="proj-name">NeuralPath AI</div><div class="proj-sub">Investor Pitch Deck · 14 slides</div></div></div>
-      <div class="project-info"><h3>AI startup raising Series A</h3><p>Narrative arc from problem → traction → ask. Navy and champagne gold. Built for live investor meetings and cold send.</p><div class="project-tags"><span class="ptag">Pitch Deck</span><span class="ptag">AI/SaaS</span><span class="ptag">Series A</span></div></div>
+      <div class="project-visual pv-neural">
+        <div class="pv-geo"><svg viewBox="0 0 400 225" preserveAspectRatio="none"><circle cx="330" cy="45" r="85" fill="rgba(200,168,75,.06)"/><line x1="245" y1="45" x2="410" y2="210" stroke="rgba(200,168,75,.09)" stroke-width="1.5"/></svg></div>
+        <div class="project-overlay"></div>
+        <div class="proj-meta">
+          <span class="proj-tag">AI · SaaS · Series A</span><!-- EDIT -->
+          <div class="proj-name">NeuralPath AI</div><!-- EDIT -->
+          <div class="proj-sub">Investor Pitch Deck · 14 slides</div><!-- EDIT -->
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>AI startup raising Series A</h3><!-- EDIT headline -->
+        <p>Narrative arc from problem → traction → ask. Navy and champagne gold. Built for live investor meetings and cold send.</p><!-- EDIT description -->
+        <div class="project-tags">
+          <span class="ptag">Pitch Deck</span><!-- EDIT/ADD tags -->
+          <span class="ptag">AI/SaaS</span>
+          <span class="ptag">Series A</span>
+        </div>
+      </div>
     </div>
+
+    <!-- ═══════════════════════════════════════════ CASE STUDY 2 — PayClear ═══ -->
     <div class="project-card reveal">
-      <div class="project-visual pv-pay"><div class="pv-geo"><svg viewBox="0 0 400 225" preserveAspectRatio="none"><rect x="265" y="10" width="120" height="120" rx="2" fill="rgba(74,140,122,.09)" transform="rotate(15 325 70)"/></svg></div><div class="project-overlay"></div><div class="proj-meta"><span class="proj-tag">Fintech · Growth Strategy</span><div class="proj-name">PayClear</div><div class="proj-sub">Strategy Deck · 12 slides</div></div></div>
-      <div class="project-info"><h3>Fintech growth strategy deck</h3><p>Deep forest and gold. Two-panel layouts, stat cards, diagonal texture. Boardroom-grade finish for a payments company entering new markets.</p><div class="project-tags"><span class="ptag">Fintech</span><span class="ptag">Strategy</span><span class="ptag">Boardroom</span></div></div>
+      <div class="project-visual pv-pay">
+        <div class="pv-geo"><svg viewBox="0 0 400 225" preserveAspectRatio="none"><rect x="265" y="10" width="120" height="120" rx="2" fill="rgba(74,140,122,.09)" transform="rotate(15 325 70)"/></svg></div>
+        <div class="project-overlay"></div>
+        <div class="proj-meta">
+          <span class="proj-tag">Fintech · Growth Strategy</span><!-- EDIT -->
+          <div class="proj-name">PayClear</div><!-- EDIT -->
+          <div class="proj-sub">Strategy Deck · 12 slides</div><!-- EDIT -->
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>Fintech growth strategy deck</h3><!-- EDIT -->
+        <p>Deep forest and gold. Two-panel layouts, stat cards, diagonal texture. Boardroom-grade finish for a payments company entering new markets.</p><!-- EDIT -->
+        <div class="project-tags">
+          <span class="ptag">Fintech</span>
+          <span class="ptag">Strategy</span>
+          <span class="ptag">Boardroom</span>
+        </div>
+      </div>
     </div>
+
+    <!-- ═══════════════════════════════════════════ CASE STUDY 3 — Vaultly ═══ -->
     <div class="project-card reveal">
-      <div class="project-visual pv-vault"><div class="pv-geo"><svg viewBox="0 0 400 225" preserveAspectRatio="none"><polygon points="350,10 400,95 300,95" fill="rgba(200,168,75,.08)"/></svg></div><div class="project-overlay"></div><div class="proj-meta"><span class="proj-tag">WealthTech · Seed</span><div class="proj-name">Vaultly</div><div class="proj-sub">Seed Round Deck · 10 slides</div></div></div>
-      <div class="project-info"><h3>WealthTech seed round deck</h3><p>Deep amber and gold for a wealth platform targeting HNWIs. Understated luxury matched precisely to the client profile.</p><div class="project-tags"><span class="ptag">WealthTech</span><span class="ptag">Seed</span><span class="ptag">HNWI</span></div></div>
+      <div class="project-visual pv-vault">
+        <div class="pv-geo"><svg viewBox="0 0 400 225" preserveAspectRatio="none"><polygon points="350,10 400,95 300,95" fill="rgba(200,168,75,.08)"/></svg></div>
+        <div class="project-overlay"></div>
+        <div class="proj-meta">
+          <span class="proj-tag">WealthTech · Seed</span><!-- EDIT -->
+          <div class="proj-name">Vaultly</div><!-- EDIT -->
+          <div class="proj-sub">Seed Round Deck · 10 slides</div><!-- EDIT -->
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>WealthTech seed round deck</h3><!-- EDIT -->
+        <p>Deep amber and gold for a wealth platform targeting HNWIs. Understated luxury matched precisely to the client profile.</p><!-- EDIT -->
+        <div class="project-tags">
+          <span class="ptag">WealthTech</span>
+          <span class="ptag">Seed</span>
+          <span class="ptag">HNWI</span>
+        </div>
+      </div>
     </div>
+
+    <!-- ═══════════════════════════════════════════ CASE STUDY 4 — BridgeLight ═══ -->
     <div class="project-card reveal">
-      <div class="project-visual pv-bridge"><div class="pv-geo"><svg viewBox="0 0 400 225" preserveAspectRatio="none"><circle cx="350" cy="112" r="85" fill="rgba(160,100,210,.07)"/></svg></div><div class="project-overlay"></div><div class="proj-meta"><span class="proj-tag">NGO · Impact Funding</span><div class="proj-name">BridgeLight Foundation</div><div class="proj-sub">Donor &amp; Grant Deck · 11 slides</div></div></div>
-      <div class="project-info"><h3>NGO impact funding deck</h3><p>Deep plum palette. Human-impact-first structure before the ask. Works as a live presentation and a polished leave-behind.</p><div class="project-tags"><span class="ptag">NGO</span><span class="ptag">Impact</span><span class="ptag">Grant</span></div></div>
+      <div class="project-visual pv-bridge">
+        <div class="pv-geo"><svg viewBox="0 0 400 225" preserveAspectRatio="none"><circle cx="350" cy="112" r="85" fill="rgba(160,100,210,.07)"/></svg></div>
+        <div class="project-overlay"></div>
+        <div class="proj-meta">
+          <span class="proj-tag">NGO · Impact Funding</span><!-- EDIT -->
+          <div class="proj-name">BridgeLight Foundation</div><!-- EDIT -->
+          <div class="proj-sub">Donor &amp; Grant Deck · 11 slides</div><!-- EDIT -->
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>NGO impact funding deck</h3><!-- EDIT -->
+        <p>Deep plum palette. Human-impact-first structure before the ask. Works as a live presentation and a polished leave-behind.</p><!-- EDIT -->
+        <div class="project-tags">
+          <span class="ptag">NGO</span>
+          <span class="ptag">Impact</span>
+          <span class="ptag">Grant</span>
+        </div>
+      </div>
     </div>
+
+    <!-- ═══════════════════════════════════════════ CASE STUDY 5 — Meridian ═══ -->
     <div class="project-card reveal">
-      <div class="project-visual pv-merid"><div class="pv-geo"><svg viewBox="0 0 400 225" preserveAspectRatio="none"><line x1="280" y1="0" x2="400" y2="225" stroke="rgba(200,168,75,.09)" stroke-width="1.5"/><rect x="290" y="55" width="65" height="65" fill="rgba(200,168,75,.05)" transform="rotate(10 322 87)"/></svg></div><div class="project-overlay"></div><div class="proj-meta"><span class="proj-tag">Investment Intelligence</span><div class="proj-name">Meridian Capital</div><div class="proj-sub">Executive Strategy Deck · 16 slides</div></div></div>
-      <div class="project-info"><h3>Capital intelligence executive deck</h3><p>Teal and gold. Dense data made readable through bold typography and deliberate negative space. Built for boardrooms.</p><div class="project-tags"><span class="ptag">Investment</span><span class="ptag">Executive</span><span class="ptag">Strategy</span></div></div>
+      <div class="project-visual pv-merid">
+        <div class="pv-geo"><svg viewBox="0 0 400 225" preserveAspectRatio="none"><line x1="280" y1="0" x2="400" y2="225" stroke="rgba(200,168,75,.09)" stroke-width="1.5"/><rect x="290" y="55" width="65" height="65" fill="rgba(200,168,75,.05)" transform="rotate(10 322 87)"/></svg></div>
+        <div class="project-overlay"></div>
+        <div class="proj-meta">
+          <span class="proj-tag">Investment Intelligence</span><!-- EDIT -->
+          <div class="proj-name">Meridian Capital</div><!-- EDIT -->
+          <div class="proj-sub">Executive Strategy Deck · 16 slides</div><!-- EDIT -->
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>Capital intelligence executive deck</h3><!-- EDIT -->
+        <p>Teal and gold. Dense data made readable through bold typography and deliberate negative space. Built for boardrooms.</p><!-- EDIT -->
+        <div class="project-tags">
+          <span class="ptag">Investment</span>
+          <span class="ptag">Executive</span>
+          <span class="ptag">Strategy</span>
+        </div>
+      </div>
     </div>
+
+    <!-- ═══════════════════════════════════════════ CASE STUDY 6 — Econest ═══ -->
     <div class="project-card reveal">
-      <div class="project-visual pv-econest"><div class="pv-geo"><svg viewBox="0 0 400 225" preserveAspectRatio="none"><circle cx="340" cy="60" r="75" fill="rgba(80,160,80,.07)"/><line x1="0" y1="185" x2="400" y2="55" stroke="rgba(80,160,80,.06)" stroke-width="1.5"/></svg></div><div class="project-overlay"></div><div class="proj-meta"><span class="proj-tag">Sustainable Architecture · Brand</span><div class="proj-name">Econest</div><div class="proj-sub">Brand &amp; Investor Deck · 13 slides</div></div></div>
-      <div class="project-info"><h3>Eco-architecture brand deck</h3><p>Deep forest greens, organic typography, earthy textures. Sustainability credentials presented with the gravitas they deserve.</p><div class="project-tags"><span class="ptag">Sustainable</span><span class="ptag">Architecture</span><span class="ptag">Brand</span></div></div>
+      <div class="project-visual pv-econest">
+        <div class="pv-geo"><svg viewBox="0 0 400 225" preserveAspectRatio="none"><circle cx="340" cy="60" r="75" fill="rgba(80,160,80,.07)"/><line x1="0" y1="185" x2="400" y2="55" stroke="rgba(80,160,80,.06)" stroke-width="1.5"/></svg></div>
+        <div class="project-overlay"></div>
+        <div class="proj-meta">
+          <span class="proj-tag">Sustainable Architecture · Brand</span><!-- EDIT -->
+          <div class="proj-name">Econest</div><!-- EDIT -->
+          <div class="proj-sub">Brand &amp; Investor Deck · 13 slides</div><!-- EDIT -->
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>Eco-architecture brand deck</h3><!-- EDIT -->
+        <p>Deep forest greens, organic typography, earthy textures. Sustainability credentials presented with the gravitas they deserve.</p><!-- EDIT -->
+        <div class="project-tags">
+          <span class="ptag">Sustainable</span>
+          <span class="ptag">Architecture</span>
+          <span class="ptag">Brand</span>
+        </div>
+      </div>
     </div>
+
+    <!-- ═══════════════════════════════════════════ CASE STUDY 7 — Ecostyle ═══ -->
     <div class="project-card reveal">
-      <div class="project-visual pv-ecosty"><div class="pv-geo"><svg viewBox="0 0 400 225" preserveAspectRatio="none"><polygon points="400,0 400,120 280,0" fill="rgba(200,168,75,.06)"/><circle cx="80" cy="170" r="50" fill="rgba(120,160,60,.055)"/></svg></div><div class="project-overlay"></div><div class="proj-meta"><span class="proj-tag">Sustainable Fashion · Pitch</span><div class="proj-name">Ecostyle</div><div class="proj-sub">Pitch Deck · 10 slides</div></div></div>
-      <div class="project-info"><h3>Sustainable fashion pitch deck</h3><p>Warm amber and sage green. A brand that needed to feel premium and ethical at the same time. It does both, without apology.</p><div class="project-tags"><span class="ptag">Sustainable Fashion</span><span class="ptag">Pitch</span><span class="ptag">Brand</span></div></div>
+      <div class="project-visual pv-ecosty">
+        <div class="pv-geo"><svg viewBox="0 0 400 225" preserveAspectRatio="none"><polygon points="400,0 400,120 280,0" fill="rgba(200,168,75,.06)"/><circle cx="80" cy="170" r="50" fill="rgba(120,160,60,.055)"/></svg></div>
+        <div class="project-overlay"></div>
+        <div class="proj-meta">
+          <span class="proj-tag">Sustainable Fashion · Pitch</span><!-- EDIT -->
+          <div class="proj-name">Ecostyle</div><!-- EDIT -->
+          <div class="proj-sub">Pitch Deck · 10 slides</div><!-- EDIT -->
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>Sustainable fashion pitch deck</h3><!-- EDIT -->
+        <p>Warm amber and sage green. A brand that needed to feel premium and ethical at the same time. It does both, without apology.</p><!-- EDIT -->
+        <div class="project-tags">
+          <span class="ptag">Sustainable Fashion</span>
+          <span class="ptag">Pitch</span>
+          <span class="ptag">Brand</span>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
 
-<!-- PROCESS -->
 <section class="process-section" id="process">
   <p class="section-eyebrow reveal">How It Works</p>
   <h2 class="reveal">Simple process.<br><em>Zero surprises.</em></h2>
@@ -776,41 +716,63 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- ═══════════════════════════════════════════
+     TESTIMONIALS
+     TO EDIT: Replace the placeholder text below with real client quotes.
+     - testi-text  = the actual quote
+     - author-name = Client Name · Company
+     - author-role = their title · industry
+     The letter in the coloured circle (J, A, S) = first initial of client name
+═══════════════════════════════════════════ -->
 <section class="testi-section" id="contact">
   <div class="reveal">
     <p class="section-eyebrow">Client Words</p>
     <h2>They came<br>back. <em>That's<br>the review.</em></h2>
-    <p class="testi-note">Replace the placeholders with your real client testimonials. Two genuine ones outperform five generic ones every time.</p>
+    <p class="testi-note">Replace the placeholders below with your real client testimonials.</p>
   </div>
   <div class="testi-cards reveal">
     <div class="testi-card">
       <div class="testi-mark">"</div>
-      <p class="testi-text">The deck landed us meetings with three investors we'd been chasing for months. She understood our business faster than we expected — and made it look better than we imagined.</p>
-      <div class="testi-author"><div class="author-av av1">J</div><div><div class="author-name">Client Name · Replace Me</div><div class="author-role">CEO · Tech Startup</div></div></div>
+      <p class="testi-text">The deck landed us meetings with three investors we'd been chasing for months. She understood our business faster than we expected — and made it look better than we imagined.</p><!-- EDIT QUOTE -->
+      <div class="testi-author">
+        <div class="author-av av1">J</div><!-- EDIT: change letter to client initial -->
+        <div>
+          <div class="author-name">Client Name · Replace Me</div><!-- EDIT -->
+          <div class="author-role">CEO · Tech Startup</div><!-- EDIT -->
+        </div>
+      </div>
     </div>
     <div class="testi-card">
       <div class="testi-mark">"</div>
-      <p class="testi-text">We'd presented to boards before and always felt underprepared. This deck changed that. Clean, confident, built to persuade people who've seen everything.</p>
-      <div class="testi-author"><div class="author-av av2">A</div><div><div class="author-name">Client Name · Replace Me</div><div class="author-role">Director · NGO</div></div></div>
+      <p class="testi-text">We'd presented to boards before and always felt underprepared. This deck changed that. Clean, confident, built to persuade people who've seen everything.</p><!-- EDIT QUOTE -->
+      <div class="testi-author">
+        <div class="author-av av2">A</div><!-- EDIT initial -->
+        <div>
+          <div class="author-name">Client Name · Replace Me</div><!-- EDIT -->
+          <div class="author-role">Director · NGO</div><!-- EDIT -->
+        </div>
+      </div>
     </div>
     <div class="testi-card">
       <div class="testi-mark">"</div>
-      <p class="testi-text">Fast turnaround, sharp eye, and she pushed back on our messaging in exactly the right way. Not just a designer — a strategic partner who cares about the outcome.</p>
-      <div class="testi-author"><div class="author-av av3">S</div><div><div class="author-name">Client Name · Replace Me</div><div class="author-role">Founder · Fintech</div></div></div>
+      <p class="testi-text">Fast turnaround, sharp eye, and she pushed back on our messaging in exactly the right way. Not just a designer — a strategic partner who cares about the outcome.</p><!-- EDIT QUOTE -->
+      <div class="testi-author">
+        <div class="author-av av3">S</div><!-- EDIT initial -->
+        <div>
+          <div class="author-name">Client Name · Replace Me</div><!-- EDIT -->
+          <div class="author-role">Founder · Fintech</div><!-- EDIT -->
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
 <div class="cta-section">
   <h2 class="reveal">Your next deck<br>should <em>work.</em></h2>
   <p class="reveal">Whether you're raising, pitching, or walking into a board meeting — let's make sure the room remembers you.</p>
-  <!-- ↓ REPLACE WITH YOUR REAL EMAIL -->
-  <a href="mailto:hello@margaretwanjiku.com" class="btn-cta reveal">Begin a Project</a>
+  <a href="mailto:Margaretoperations@gmail.com" class="btn-cta reveal">Begin a Project</a>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">Margaret <span>Wanjiku</span></div>
   <div class="footer-links">
@@ -818,14 +780,12 @@ footer { background:var(--navy-deep);padding:2.5rem 9vw;display:flex;align-items
     <a href="#work">Work</a>
     <a href="#services">Services</a>
     <a href="https://behance.net/msngigi" target="_blank">Behance</a>
-    <!-- ↓ REPLACE WITH YOUR REAL EMAIL -->
-    <a href="mailto:hello@margaretwanjiku.com">Email</a>
+    <a href="mailto:Margaretoperations@gmail.com">Email</a>
   </div>
-  <div class="footer-copy">© 2025 Margaret Wanjiku · Nairobi, Kenya</div>
+  <div class="footer-copy">© 2026 Margaret Wanjiku · Nairobi, Kenya</div>
 </footer>
 
 <script>
-// CURSOR
 const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
@@ -836,30 +796,20 @@ document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
   requestAnimationFrame(tick);
 })();
 if('ontouchstart' in window){cursor.style.display='none';ring.style.display='none';document.body.style.cursor='auto';}
-
-// MOBILE MENU
 document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileMenu').classList.add('open'));
 document.getElementById('mobileClose').addEventListener('click',()=>document.getElementById('mobileMenu').classList.remove('open'));
 function closeMobile(){document.getElementById('mobileMenu').classList.remove('open')}
-
-// ABOUT PHOTO
-const img=document.getElementById('aboutImg'),ph=document.getElementById('aboutPH');
-if(img&&img.getAttribute('src')&&img.getAttribute('src').length>0){img.style.display='block';ph.style.display='none';}
-
-// CAROUSEL
 const slides=document.querySelectorAll('.carousel-slide');
 const dotsWrap=document.getElementById('carouselDots');
 const counterEl=document.getElementById('carouselCurrent');
 document.getElementById('carouselTotal').textContent=slides.length;
 let current=0,autoTimer;
-
 slides.forEach((_,i)=>{
   const d=document.createElement('div');
   d.className='carousel-dot'+(i===0?' active':'');
   d.addEventListener('click',()=>goTo(i));
   dotsWrap.appendChild(d);
 });
-
 function goTo(n){
   slides[current].classList.remove('active');
   dotsWrap.children[current].classList.remove('active');
@@ -879,8 +829,6 @@ track.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if
 function startAuto(){autoTimer=setInterval(()=>goTo(current+1),5000)}
 function resetAuto(){clearInterval(autoTimer);startAuto()}
 startAuto();
-
-// SCROLL REVEAL
 const obs=new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*65);obs.unobserve(e.target);}});
 },{threshold:0.07});
